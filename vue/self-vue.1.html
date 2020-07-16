@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var Cat = {};
+		var name = '';
+		Object.defineProperty(Cat, 'name', {
+			set: function(value) {
+				name = value;
+				console.log(`设置新名字：${value}`);
+			},
+			get: function() {
+				return `获取名字: ${name}`
+			}
+		})
+		Cat.name = 'Tom';
+		console.log(Cat.name);
+		console.log(Cat);
+	</script>
+</html>
