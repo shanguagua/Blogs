@@ -72,7 +72,7 @@
 					let that = this;
 					var clipboard = new ClipboardJS(".img-item", {
 						text: function(trigger) {
-							return item;
+							return 'https://shanguagua.github.io/Blogs/BlogImgs/' + item;
 						}
 					});
 					clipboard.on("success", e => {
