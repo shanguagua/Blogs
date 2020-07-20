@@ -23,7 +23,7 @@
 				text-align: center;
 			}
 			
-			.imgs-container {
+			.imgs {
 				margin-top: 20px;
 				display: flex;
 				flex-wrap: wrap;
@@ -41,9 +41,16 @@
 	</head>
 	<body>
 		<div id="app">
-			<div class="title">博客图片</div>
-			<div class="imgs-container">
-				<div @click="copy(item)" v-for="(item, index) in images" class="img-item">
+			<div class="title">海报图片</div>
+			<div class="imgs">
+				<div @click="copy(item)" v-for="(item, index) in posterImgs" class="img-item">
+					<img :src="item" alt="">
+				</div>
+			</div>
+			
+			<div class="title">文章图片</div>
+			<div class="imgs">
+				<div @click="copy(item)" v-for="(item, index) in chapterImgs" class="img-item">
 					<img :src="item" alt="">
 				</div>
 			</div>
@@ -57,19 +64,28 @@
 		var app = new Vue({
 			el: '#app',
 			data: {
-				images: []
+				posterImgs: [],
+				chapterImgs: []
 			},
 			mounted: function() {
 				this.createImgs();
 			},
 			methods: {
 				createImgs() {
-					let totalImgsCount = 9;
-					let imageUrls = [];
-					for (let i = 0; i < totalImgsCount; i++) {
-						imageUrls.push(`src/images/${i + 1}.jpg`);
+					let totalPosterImgsCount = 9;
+					let posterImgs = [];
+					for (let i = 0; i < totalPosterImgsCount; i++) {
+						posterImgs.push(`src/posterImgs/${i + 1}.jpg`);
 					}
-					this.images = imageUrls;
+					this.posterImgs = posterImgs;
+					
+					
+					let totalChapterImgsCount = 1;
+					let chapterImgs = [];
+					for (let i = 0; i < totalChapterImgsCount; i++) {
+						chapterImgs.push(`src/chapterImgs/${i + 1}.jpg`);
+					}
+					this.chapterImgs = chapterImgs;
 				},
 				copy(item) {
 					let that = this;
